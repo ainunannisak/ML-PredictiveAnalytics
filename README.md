@@ -4,10 +4,9 @@
 Topik yang diangkat dari proyek ini yaitu mengenai bidang ekonomi dan bisnis, di mana suatu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin memprediksi penjualan mingguan.
 
 ### Latar Belakang
-Memprediksi permintaan suatu produk dan menyimpannya sesuai kebutuhan dimasa yang akan datang merupakan hal penting dalam penjualan bisnis supermarket. Dengan prediksi yang akurat, dapat dicapai retensi pelanggan yang lebih baik, kepuasan pelanggan, dan menghindari situasi stok berlebihan dan kekurangan stok [[1]](https://ijcrt.org/papers/IJCRT22A6470.pdf)
-to Markdown converter.
+Memprediksi permintaan suatu produk dan menyimpannya sesuai kebutuhan dimasa yang akan datang merupakan hal penting dalam penjualan bisnis supermarket. Dengan prediksi yang akurat, dapat dicapai retensi pelanggan yang lebih baik, kepuasan pelanggan, dan menghindari situasi stok berlebihan dan kekurangan stok [[1]](https://ijcrt.org/papers/IJCRT22A6470.pdf).
 
-Salah satu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin memprediksi penjualan dan permintaan dengan akurat. Ada beberapa acara dan hari libur yang mempengaruhi penjualan setiap harinya [[2]](https://www.kaggle.com/code/yasserh/walmart-sales-prediction-best-ml-algorithms). Pada project ini, akan dilakukan prediksi Machine Learning untuk penjualan mingguan pada supermarket Walmart.
+Salah satu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin memprediksi penjualan dan permintaan dengan akurat. Ada beberapa acara dan hari libur yang mempengaruhi penjualan setiap harinya [[2]](https://www.kaggle.com/code/yasserh/walmart-sales-prediction-best-ml-algorithms). Pada project ini, akan dilakukan prediksi Machine Learning untuk penjualan mingguan pada supermarket Walmart. Diharapkan prediksi ini bisa menjadi acuan penting bagi bisnis karena dapat memberikan informasi dalam pengambilan keputusan mengenai inventaris, staf, dan upaya pemasaran. Dengan memahami faktor-faktor yang mendorong penjualan dan menggunakan model yang andal untuk memperkirakan penjualan di masa depan, bisnis dapat merencanakan masa depan dengan lebih baik, mengoptimalkan sumber daya, dan mendatangkan keuntungan lebih banyak [[3]](https://eprajournals.com/IJSR/article/11646/abstract).
 
 ## Business Understanding
 ### Problem Statement
@@ -39,20 +38,25 @@ Dataset terdiri dari 6435 sampel dan 8 fitur. Data historis yang mencakup penjua
 
 **Grafik Penjualan semua toko**
 ![download](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/9148711f-65db-4ef8-aa97-a0dad37f3eaf)
+
+Gambar 1. Grafik Penjualan semua toko
 - Toko 4 dan 20 memiliki tingkat penjualan mingguan tertinggi
 - Toko 5 dan 33 memiliki tingkat penjualan mingguan terendah
   
 **Trend Penjualan Mingguan**
 ![download (1)](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/f0712752-fa75-4996-bc99-8965bf2ae64c)
 
-Grafik menunjukkan bahwa penjualan mingguan di Walmart umumnya tetap stabil sepanjang tahun, kecuali pada bulan November dan Desember yang mengalami peningkatan penjualan yang signifikan.
+Gambar 2. Trend Penjualan Mingguan
+
+Gambar 2 menunjukkan bahwa penjualan mingguan di Walmart umumnya tetap stabil sepanjang tahun, kecuali pada bulan November dan Desember yang mengalami peningkatan penjualan yang signifikan.
 
 ![download (2)](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/36aa8c77-39f0-4aa8-8896-6facf0eb760f)
 
+Gambar 3. Penjualan Mingguan Setiap Bulan
 Kenaikan penjualan mingguan ini kemungkinan terjadi karena musim liburan Natal dan Akhir Tahun. Namun terjadi penurunan signifikan di bulan Januari, ini kemungkinan disebabkan karena event atau promo menarik telah dilaksanakan di dua bulan sebelumnya dan pelanggan telah menghabiskan uangnya di bulan November dan Desember.
 
 ## Data Preparation
-- Melakukan pengecekan apakah ada missing values dan duplikasi pada data.
+- Memeriksa apakah ada missing values dengan mengecek setiap sel dalam dataset yang memiliki nilai kosong dan duplikasi pada data. Jika ada, maka missing values dan data yang duplikat akan dihapus.
 - Menghapus kolom yang tidak diperlukan pada tahapan modeling.
 - Melakukan standarisasi pada data dengan menggunakan StandardScaler dari library sckit-learn.
 - Melakukan split dataset dengan rasio 80:20. Proses ini dilakukan dengan menggunakan modul train_test_split dari library scikit-learn.
@@ -83,32 +87,45 @@ Dimana:
 - yᵢ: nilai yang diamati (aktual) dari variabel target untuk titik data ke-i
 - pᵢ: nilai prediksi yang sesuai untuk yi
 
-![Screenshot 2024-02-11 135724](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/3b48f9bd-5774-4bde-be87-11f6c0a43dca)
-
-Dari tabel diatas menunjukkan Random Forest melebihi regressor lain dengan RMSE sebesar 1.14e+05. Ini memberikan perkiraan yang baik untuk penjualan di masa depan karena memiliki kesalahan rata-rata sekitar 11%.
+Tabel 1. RMSE train dan test model
+|   |                    Model |         Train |          Test |
+|--:|-------------------------:|--------------:|--------------:|
+| 0 |        Linear Regression | 521308.592130 | 520962.802146 |
+| 1 | Support Vector Regressor | 571446.438654 | 568799.580038 |
+| 2 |  Random Forest Regressor |  45157.623051 | 114990.508702 |
 
 ![download (3)](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/4faf48a5-6d5e-42d0-abbb-1e8698fe7bf1)
 
-Dari hasil perbandingan ketiga model, RandomForest memiliki kinerja lebih baik daripada model lainnya. Namun, RandomForest memiliki kecenderungan terlalu overfitting pada model yang telah dibangun.
+Gambar 4. Perbandingan performa masing-masing model
 
-![Screenshot 2024-02-11 135732](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/8ad7761e-8204-4c66-ab6b-868ac471c1d1)
+Dari Tabel 1 dan Gambar 4 diatas menunjukkan Random Forest melebihi regressor lain dengan RMSE sebesar 1.14e+05. Ini memberikan perkiraan yang baik untuk penjualan di masa depan karena memiliki kesalahan rata-rata sekitar 11%. Dari hasil perbandingan ketiga model, RandomForest memiliki kinerja lebih baik daripada model lainnya. Namun, RandomForest memiliki kecenderungan terlalu overfitting pada model yang telah dibangun.
 
-Dapat kita lihat bahwa prediksi dari ketiga algoritma yang paling mendekati y_true dengan 10 sampel data acak adalah prediksi Random Forest. Ini menandakan bahwa Random Forest merupakan algoritma terbaik dibandingkan dengan algoritma yang lain pada dataset Walmart.
+Tabel 1. Hasil prediksi masing-masing model
+|      |     y_true | prediksi_LR | prediksi_SVR | prediksi_RFR |
+|-----:|-----------:|------------:|-------------:|-------------:|
+|  559 | 2174514.13 |   1421495.4 |     960363.5 |    2178019.8 |
+| 5825 | 1238844.56 |    821589.2 |     960283.1 |    1412937.4 |
+| 6275 |  358461.58 |    833694.4 |     960244.7 |     331128.9 |
+| 1316 | 1727565.42 |   1291498.6 |     960359.0 |    1864301.6 |
+| 2291 |  749549.55 |   1249850.4 |     960314.6 |     854783.5 |
+|  856 | 1436883.99 |   1253474.3 |     960296.0 |    1448458.7 |
+| 6256 |  315641.80 |    773757.2 |     960247.9 |     310259.4 |
+| 2050 |  509640.77 |   1324343.1 |     960381.5 |     553441.9 |
+| 5344 |  377672.46 |    869558.8 |     960280.3 |     370263.2 |
+|  784 | 1705506.29 |   1213514.7 |     960314.2 |    1599620.0 |
+
+Dapat kita lihat dari Tabel 1 bahwa prediksi dari ketiga algoritma yang paling mendekati y_true dengan 10 sampel data acak adalah prediksi Random Forest. Ini menandakan bahwa Random Forest merupakan algoritma terbaik dibandingkan dengan algoritma yang lain pada dataset Walmart.
 
 ### Kesimpulan
 
 Penjualan selama minggu pada musim liburan secara signifikan lebih tinggi dibandingkan dengan minggu yang bukan pada musim liburan, dengan penjualan rata-rata meningkat dua kali lipat. Penjualan rata-rata toko tertinggi dapat mencapai hingga 500% lebih tinggi daripada toko yang paling rendah.
 
-Model terbaik untuk memprediksi penjualan di masa depan adalah model Random Forest Regressor, yang mencapai nilai RMSE sebesar 1.14e+05. Ini merupakan perkiraan yang baik karena hanya terdapat selisih 88.5% dari nilai median penjualan data.
+Model terbaik untuk memprediksi penjualan di masa depan adalah model Random Forest Regressor, yang mencapai nilai RMSE sebesar 1.14e+05. 
 
+## References
 
+[1] M. Dulam, A. Singh, A. Dharipalli, and R. Bollepally, "Predictive Analysis of Supermarket Sales Using Machine Learning," in International Journal of Computer Applications & Research Trends, vol. 10, no. 6, June 2022, pp., ISSN: 2320-2882. Hyderabad, Telangana: CMR Technical Campus, 2022.
 
+[2] M YASSER H, Walmart Sales Prediction - (Best ML Algorithms)
 
-
-
-
-
-
-
-
-
+[3] C. S. D. Abhinaya, B. Lahari, C. D. Priya, D. Anjali, B. S. Navya, and B. S. Jyothi, "Supermarket Sales Prediction Using Machine Learning," EPRA International Journal of Research and Development (IJRD), vol. 8, no. 11, pp. 1-5, Nov. 2023. [Online]. Available: https://doi.org/10.36713/epra2016
