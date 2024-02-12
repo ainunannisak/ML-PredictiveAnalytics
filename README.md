@@ -124,9 +124,6 @@ Tabel 1. RMSE train dan test model
 
 Gambar 4. Perbandingan performa masing-masing model
 
-Perhitungan persentase RMSE dapat dilakukan dengan rumus berikut
-
-
 Dari Tabel 1 dan Gambar 4 diatas menunjukkan Random Forest melebihi regressor lain dengan RMSE sebesar 1.14e+05. RMSE sebesar 1.14e+05 (1.14 x 10^5) adalah nilai kesalahan rata-rata yang dihasilkan oleh model Random Forest dalam memprediksi penjualan di masa depan. Ini memberikan perkiraan yang baik untuk penjualan di masa depan karena memiliki kesalahan rata-rata sekitar 11%. Dalam kasus ini, jika nilai RMSE sebesar 1.14e+05 dan kita mengasumsikan nilai penjualan sebenarnya adalah suatu angka tertentu, kita dapat menghitung persentase kesalahan. Persentase kesalahan sekitar 11% menunjukkan bahwa model memiliki kesalahan sekitar 11% dari nilai penjualan sebenarnya. Artinya, prediksi model memiliki kesalahan sekitar 11% dalam memperkirakan penjualan di masa depan. Semakin kecil nilai RMSE sebagai persentase dari nilai penjualan sebenarnya, semakin baik kinerja model.
 
 Dari hasil perbandingan ketiga model, RandomForest memiliki kinerja lebih baik daripada model lainnya. Namun, RandomForest memiliki kecenderungan terlalu overfitting pada model yang telah dibangun.
