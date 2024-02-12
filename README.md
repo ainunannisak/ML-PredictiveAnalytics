@@ -6,7 +6,7 @@ Topik yang diangkat dari proyek ini yaitu mengenai bidang ekonomi dan bisnis, di
 ### Latar Belakang
 Memprediksi permintaan suatu produk dan menyimpannya sesuai kebutuhan dimasa yang akan datang merupakan hal penting dalam penjualan bisnis supermarket. Dengan prediksi yang akurat, dapat dicapai retensi pelanggan yang lebih baik, kepuasan pelanggan, dan menghindari situasi stok berlebihan dan kekurangan stok [[1]](https://ijcrt.org/papers/IJCRT22A6470.pdf).
 
-Salah satu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin memprediksi penjualan dan permintaan dengan akurat. Ada beberapa acara dan hari libur yang mempengaruhi penjualan setiap harinya [[2]](https://www.kaggle.com/code/yasserh/walmart-sales-prediction-best-ml-algorithms). Pada project ini, akan dilakukan prediksi Machine Learning untuk penjualan mingguan pada supermarket Walmart. Diharapkan prediksi ini bisa menjadi acuan penting bagi bisnis karena dapat memberikan informasi dalam pengambilan keputusan mengenai inventaris, staf, dan upaya pemasaran. Dengan memahami faktor-faktor yang mendorong penjualan dan menggunakan model yang andal untuk memperkirakan penjualan di masa depan, bisnis dapat merencanakan masa depan dengan lebih baik, mengoptimalkan sumber daya, dan mendatangkan keuntungan lebih banyak [[3]](https://eprajournals.com/IJSR/article/11646/abstract).
+Salah satu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin memprediksi penjualan dan permintaan dengan akurat. Ada beberapa acara dan hari libur yang mempengaruhi penjualan setiap harinya [[2]](https://www.kaggle.com/code/yasserh/walmart-sales-prediction-best-ml-algorithms). Pada project ini, akan dilakukan prediksi Machine Learning untuk penjualan mingguan pada supermarket Walmart. Diharapkan prediksi ini bisa menjadi acuan penting bagi bisnis karena dapat memberikan informasi dalam pengambilan keputusan mengenai inventaris, staf, dan upaya pemasaran. Dengan memahami faktor-faktor yang mendorong penjualan dan menggunakan model yang andal untuk memperkirakan penjualan di masa depan, bisnis supermarket Walmart dapat merencanakan masa depan dengan lebih baik, mengoptimalkan sumber daya, dan mendatangkan keuntungan lebih banyak [[3]](https://eprajournals.com/IJSR/article/11646/abstract).
 
 ## Business Understanding
 ### Problem Statement
@@ -55,20 +55,36 @@ Gambar 2 menunjukkan bahwa penjualan mingguan di Walmart umumnya tetap stabil se
 Gambar 3. Penjualan Mingguan Setiap Bulan
 Kenaikan penjualan mingguan ini kemungkinan terjadi karena musim liburan Natal dan Akhir Tahun. Namun terjadi penurunan signifikan di bulan Januari, ini kemungkinan disebabkan karena event atau promo menarik telah dilaksanakan di dua bulan sebelumnya dan pelanggan telah menghabiskan uangnya di bulan November dan Desember.
 
+**Hubungan Antara Fitur Sales dengan Unemployment Rate dan CPI** 
+![unemployment](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/28d95ddd-d7ec-4219-89f3-6a5988268e20)
+
+Gambar 4. Penjualan terhadap Tingkat Pengangguran
+Penjualan dipengaruhi oleh tingkat pengangguran, sehingga semakin tinggi tingkat pengangguran, semakin rendah penjualan.
+
+![CPI](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/af5eceec-a69b-465c-ac56-b84451f6204f)
+
+Gambar 5. Penjualan terhadap CPI
+Penyusutan Indeks Harga Konsumen (CPI) tidak mempengaruhi penjualan. Berdasarkan distribusi rata-rata harga konsumen di atas, pelanggan dapat dibagi menjadi dua kategori:
+- Pelanggan yang membayar antara 120 hingga 150 (pelanggan kelas menengah).
+- Pelanggan yang membayar antara 180 hingga 230 (pelanggan kelas atas).
+
 ## Data Preparation
 - Memeriksa apakah ada missing values dengan mengecek setiap sel dalam dataset yang memiliki nilai kosong dan duplikasi pada data. Jika ada, maka missing values dan data yang duplikat akan dihapus.
 - Menghapus kolom yang tidak diperlukan pada tahapan modeling.
-- Melakukan standarisasi pada data dengan menggunakan StandardScaler dari library sckit-learn.
-- Melakukan split dataset dengan rasio 80:20. Proses ini dilakukan dengan menggunakan modul train_test_split dari library scikit-learn.
+- Melakukan standarisasi pada data dengan menggunakan StandardScaler dari _library_ sckit-learn.
+- Melakukan split dataset dengan rasio 80:20. Proses ini dilakukan dengan menggunakan modul train_test_split dari _library_ scikit-learn.
   
 ## Modeling
 ### Linear Regression
+Linear Regression mengasumsikan hubungan linear antara variabel independen (fitur) dan variabel dependen (target). Algoritma ini memiliki parameter yang paling penting yaitu fit_intercept dan koefisien.
 - Kelebihan: Mudah dipahami dan diinterpretasikan, efisien secara komputasional saat berurusan dengan dataset besar, dan tidak membuat asumsi tentang distribusi fitur.
 - Kekurangan: mengasumsikan hubungan linear antara variabel independen dan dependen, sensitif terhadap outliers, kompleksitas terbatas, tidak cocok untuk data non-linear.
 ### Support Vector Machine
+SVR tujuannya adalah menemukan hiperplane yang terbaik sesuai dengan data dengan margin maksimum. Parameter yang digunakan pada algoritma ini adalah tipe kernel yang dipilih tergantung dengan jenis data dan C yang merupakan parameter regularisasi.
 - Kelebihan: Efektif dalam ruang dimensi tinggi, tahan terhadap overfitting, kernel yang serbaguna, berfungsi baik dengan dataset kecil, optimalitas global.
 - Kekurangan: Mahal secara komputasional, sensitif terhadap hiperparameter, sulit diinterpretasikan, membutuhkan banyak memori, kurangnya output probabilitas.
 ### Random Forest
+Random Forest adalah metode pembelajaran ensemble yang membangun beberapa pohon keputusan selama pelatihan. Parameter yang digunakan pada algoritma ini adalah n_estimators yaitu merupakan function yang digunakan agar dapat menentukan jumlah tree yang terdapat didalam model RF dan max_features yaitu jumlah fitur yang akan dipertimbangkan saat mencari pemisahan terbaik. 
 - Kelebihan: Akurasi tinggi, ketangguhan terhadap outliers, pentingnya fitur, menangani data dimensi tinggi, hubungan non-linear.
 - Kekurangan: Interpretabilitas model, kompleksitas komputasional, penggunaan memori, kecenderungan terhadap fitur dengan kardinalitas tinggi, penyetelan hiperparameter.
 
@@ -98,7 +114,9 @@ Tabel 1. RMSE train dan test model
 
 Gambar 4. Perbandingan performa masing-masing model
 
-Dari Tabel 1 dan Gambar 4 diatas menunjukkan Random Forest melebihi regressor lain dengan RMSE sebesar 1.14e+05. Ini memberikan perkiraan yang baik untuk penjualan di masa depan karena memiliki kesalahan rata-rata sekitar 11%. Dari hasil perbandingan ketiga model, RandomForest memiliki kinerja lebih baik daripada model lainnya. Namun, RandomForest memiliki kecenderungan terlalu overfitting pada model yang telah dibangun.
+Dari Tabel 1 dan Gambar 4 diatas menunjukkan Random Forest melebihi regressor lain dengan RMSE sebesar 1.14e+05. RMSE sebesar 1.14e+05 (1.14 x 10^5) adalah nilai kesalahan rata-rata yang dihasilkan oleh model Random Forest dalam memprediksi penjualan di masa depan. Ini memberikan perkiraan yang baik untuk penjualan di masa depan karena memiliki kesalahan rata-rata sekitar 11%. Dalam kasus ini, jika nilai RMSE sebesar 1.14e+05 dan kita mengasumsikan nilai penjualan sebenarnya adalah suatu angka tertentu, kita dapat menghitung persentase kesalahan. Persentase kesalahan sekitar 11% menunjukkan bahwa model memiliki kesalahan sekitar 11% dari nilai penjualan sebenarnya. Artinya, prediksi model memiliki kesalahan sekitar 11% dalam memperkirakan penjualan di masa depan. Semakin kecil nilai RMSE sebagai persentase dari nilai penjualan sebenarnya, semakin baik kinerja model.
+
+Dari hasil perbandingan ketiga model, RandomForest memiliki kinerja lebih baik daripada model lainnya. Namun, RandomForest memiliki kecenderungan terlalu overfitting pada model yang telah dibangun.
 
 Tabel 1. Hasil prediksi masing-masing model
 |      |     y_true | prediksi_LR | prediksi_SVR | prediksi_RFR |
