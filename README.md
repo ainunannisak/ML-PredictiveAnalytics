@@ -11,13 +11,23 @@ Salah satu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin mempred
 ## Business Understanding
 ### Problem Statement
 1. Bagaimana mengidentifikasi kapan waktu tertentu yang mempengaruhi penjualan supermarket?
-2. Apa faktor yang mempengaruhi penjualan dari suatu supermarket?
+2. Bagaimana meningkatkan prediksi penjualan di masa depan berdasarkan faktor-faktor yang ada?
 ### Goals
 1. Mengetahui pada waktu kapan penjualan supermarket cenderung lebih tinggi atau lebih rendah.
-2. Mengetahui faktor apa saja yang mempengaruhi penjualan dari suatu toko supermarket
+2. Mengetahui  faktor-faktor yang memengaruhi tingkat penjualan, dengan tujuan meningkatkan prediksi penjualan dengan tingkat kesalahan lebih kecil.
 ### Solution Statements
 1. Memahami data dan memvisualisasikannya untuk mengetahui faktor seperti apa yang mempengaruhi penjualan supermarket.
 2. Membangun model machine learning untuk memprediksi penjualan supermarket dan mengevaluasi model yang digunakan.
+3. Melakukan evaluasi model dengan menggunakan metrik Root Mean Square Error (RMSE) untuk menilai sejauh mana model dapat menghasilkan prediksi yang akurat.
+
+Goals
+1. Menganalisis dan mengidentifikasi pola kapan penjualan supermarket cenderung lebih tinggi atau lebih rendah.
+2. Mengidentifikasi variabel-variabel yang secara signifikan mempengaruhi kinerja penjualan di supermarket.
+
+Solution Statements
+1. Melakukan eksplorasi data dan visualisasi untuk memahami hubungan antara waktu tertentu dan penjualan supermarket, serta variabel-variabel lain yang berpotensi mempengaruhi penjualan.
+2. Membangun model machine learning untuk memprediksi penjualan supermarket dengan menggunakan variabel-variabel yang diidentifikasi sebelumnya.
+3. Melakukan evaluasi model dengan menggunakan metrik seperti Mean Squared Error (MSE) dan Root Mean Square Error (RMSE) untuk menilai sejauh mana model dapat menghasilkan prediksi yang akurat.
 
 ## Data Understanding
 Dataset yang digunakan pada project ini berasal dari Kaggle oleh [M Yasser H](https://www.kaggle.com/yasserh) yang dapat diunduh pada tautan berikut [Walmart Dataset](https://www.kaggle.com/datasets/yasserh/walmart-dataset/data).
@@ -113,6 +123,9 @@ Tabel 1. RMSE train dan test model
 ![download (3)](https://github.com/ainunannisak/ML-PredictiveAnalytics/assets/70701995/4faf48a5-6d5e-42d0-abbb-1e8698fe7bf1)
 
 Gambar 4. Perbandingan performa masing-masing model
+
+Perhitungan persentase RMSE dapat dilakukan dengan rumus berikut
+
 
 Dari Tabel 1 dan Gambar 4 diatas menunjukkan Random Forest melebihi regressor lain dengan RMSE sebesar 1.14e+05. RMSE sebesar 1.14e+05 (1.14 x 10^5) adalah nilai kesalahan rata-rata yang dihasilkan oleh model Random Forest dalam memprediksi penjualan di masa depan. Ini memberikan perkiraan yang baik untuk penjualan di masa depan karena memiliki kesalahan rata-rata sekitar 11%. Dalam kasus ini, jika nilai RMSE sebesar 1.14e+05 dan kita mengasumsikan nilai penjualan sebenarnya adalah suatu angka tertentu, kita dapat menghitung persentase kesalahan. Persentase kesalahan sekitar 11% menunjukkan bahwa model memiliki kesalahan sekitar 11% dari nilai penjualan sebenarnya. Artinya, prediksi model memiliki kesalahan sekitar 11% dalam memperkirakan penjualan di masa depan. Semakin kecil nilai RMSE sebagai persentase dari nilai penjualan sebenarnya, semakin baik kinerja model.
 
