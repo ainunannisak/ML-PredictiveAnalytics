@@ -91,6 +91,38 @@ plt.show()
 """Grafik menunjukkan bahwa penjualan mingguan di Walmart umumnya tetap stabil sepanjang tahun, kecuali pada bulan November dan Desember yang mengalami peningkatan penjualan yang signifikan.
 Kenaikan ini kemungkinan terjadi karena musim liburan. Namun terjadi penurunan signifikan di bulan Januari, ini kemungkinan disebabkan karena event atau promo menarik telah dilaksanakan di dua bulan sebelumnya dan pelanggan telah menghabiskan uangnya di bulan November dan Desember.
 
+**Hubungan Antara Fitur Sales dengan Unemployment Rate dan CPI**
+"""
+
+plt.figure(figsize = (14, 5))
+sns.scatterplot(data = data,
+                x = 'Unemployment',
+                y = 'Weekly_Sales')
+
+# Add labels and title
+plt.title('Penjualan  terhadap Tingkat Pengangguran', size = 20)
+plt.xlabel('Unemployment Rate', size = 15)
+plt.ylabel('Sales', size = 15)
+plt.show()
+
+"""Penjualan dipengaruhi oleh tingkat pengangguran, sehingga semakin tinggi tingkat pengangguran, semakin rendah penjualan."""
+
+plt.figure(figsize = (14, 5))
+sns.scatterplot(data = data,
+                x = 'CPI',
+                y = 'Weekly_Sales',
+                color = '#8de5a1')
+
+# Add labels and title
+plt.title('Penjualan terhadap CPI', size = 20)
+plt.xlabel('CPI', size = 15)
+plt.ylabel('Sales', size = 15)
+plt.show()
+
+"""Penyusutan Indeks Harga Konsumen (CPI) tidak mempengaruhi penjualan. Berdasarkan distribusi rata-rata harga konsumen di atas, pelanggan dapat dibagi menjadi dua kategori:
+* Pelanggan yang membayar antara 120 hingga 150 (pelanggan kelas menengah).
+* Pelanggan yang membayar antara 180 hingga 230 (pelanggan kelas atas).
+
 ### Data Preparation
 """
 
