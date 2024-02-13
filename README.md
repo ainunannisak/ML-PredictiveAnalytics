@@ -12,7 +12,7 @@ Salah satu toko ritel terkemuka di Amerika Serikat, yaitu Walmart, ingin mempred
 ### Problem Statement
 1. Bagaimana mengidentifikasi kapan waktu tertentu yang mempengaruhi penjualan supermarket?
 2. Bagaimana melakukan prediksi penjualan di masa depan berdasarkan faktor-faktor yang ada?
-3. Bagaimana mengembangkan model regresi yang mampu memprediksi penjualan di masa depan dengan akurat?
+3. Bagaimana memprediksi penjualan di masa depan dengan akurat?
 ### Goals
 1. Menganalisis dan mengidentifikasi pola kapan penjualan supermarket cenderung lebih tinggi atau lebih rendah.
 2. Mengidentifikasi dan memahami faktor-faktor yang berkontribusi terhadap tingkat penjualan.
